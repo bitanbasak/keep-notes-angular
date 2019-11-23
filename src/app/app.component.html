@@ -1,0 +1,98 @@
+<!-- HeaderComponent to be displayed as part of AppComponent -->
+<app-header></app-header>
+
+<!-- Label to display any error messages -->
+<div *ngIf="errMessage !== ''" class="container warning-box">
+  <img
+    src="../assets/close.svg"
+    class="warning-close"
+    (click)="dismissError()"
+  />
+  <label class="error-message">{{ errMessage }}</label>
+</div>
+
+<!-- To add notes -->
+<div class="container">
+  <mat-accordion>
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Take a note
+        </mat-panel-title>
+        <mat-panel-description>
+          Create a new note
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <div class="example-container">
+        <mat-form-field>
+          <input
+            matInput
+            name="title"
+            placeholder="Title"
+            [(ngModel)]="title"
+          />
+        </mat-form-field>
+
+        <mat-form-field>
+          <textarea
+            matInput
+            name="text"
+            placeholder="Text"
+            [(ngModel)]="text"
+          ></textarea>
+        </mat-form-field>
+      </div>
+      <button
+        *ngIf="!showUpdateButton"
+        mat-raised-button
+        color="primary"
+        (click)="addNote()"
+      >
+        Done
+      </button>
+      <button
+        *ngIf="showUpdateButton"
+        mat-raised-button
+        color="primary"
+        (click)="updateNote()"
+      >
+        Update
+      </button>
+      <button
+        *ngIf="showUpdateButton"
+        mat-raised-button
+        color="primary"
+        (click)="resetInput()"
+      >
+        Cancel
+      </button>
+    </mat-expansion-panel>
+  </mat-accordion>
+</div>
+
+<!-- Load and display the collection of notes from server as Material Cards with card title set to note title and card content set to note text  -->
+<div class="pagination-controls container">
+  <pagination-controls (pageChange)="p = $event"></pagination-controls>
+</div>
+<div class="container">
+  <mat-card
+    *ngFor="
+      let note of notesArray | paginate: { itemsPerPage: 3, currentPage: p }
+    "
+  >
+    <img src="../assets/close.svg" (click)="onDelete(note.id)" />
+    <mat-card-title>{{ note.title }}</mat-card-title>
+    <mat-divider></mat-divider>
+    <mat-card-content> {{ note.text }} </mat-card-content>
+    <mat-card-actions>
+      <button
+        class="custom-button"
+        mat-raised-button
+        color="primary"
+        (click)="onEdit(note.id)"
+      >
+        Edit
+      </button>
+    </mat-card-actions>
+  </mat-card>
+</div>

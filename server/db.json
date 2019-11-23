@@ -1,0 +1,29 @@
+{
+  "notes": [
+    {
+      "title": "Read Angular 8 blog",
+      "text": "Shall do at 11 pm.",
+      "id": 8
+    },
+    {
+      "title": "Upload code",
+      "text": "Upload new code to GitLab",
+      "id": 13
+    },
+    {
+      "title": "NSR Registration",
+      "text": "Register on the NSR website.",
+      "id": 14
+    },
+    {
+      "title": "Complete Angular Course",
+      "text": "Complete the Stackroutecourse",
+      "id": 15
+    },
+    {
+      "title": "New Note",
+      "text": "This is a new note",
+      "id": 16
+    }
+  ]
+}

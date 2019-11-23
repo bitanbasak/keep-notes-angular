@@ -1,0 +1,56 @@
+.warning-box {
+  background-color: rgb(251, 72, 72);
+  color: white;
+  text-align: center;
+  padding: 20px;
+  box-shadow: 1px 1px 4px grey;
+  font-family: "Alata", sans-serif;
+}
+.warning-close {
+  line-height: auto;
+}
+.example-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.example-container > * {
+  width: 100%;
+}
+.container {
+  margin: 2% 20% 2% 20%;
+}
+mat-card {
+  width: 212px;
+  height: 260px;
+  float: left;
+  margin: 10px;
+  background-color: rgb(255, 237, 221);
+}
+mat-card-title {
+  height: 50px;
+  text-align: center;
+}
+mat-card-content {
+  padding-top: 20px;
+}
+
+mat-card-actions {
+  padding-top: 125px;
+  text-align: center;
+}
+img {
+  width: 10px;
+  height: 10px;
+  float: right;
+  padding-right: 2px;
+}
+img:hover {
+  cursor: pointer;
+}
+.custom-button {
+  width: 100%;
+}
+.pagination-controls {
+  text-align: center;
+}
